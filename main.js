@@ -1,7 +1,3 @@
-function getRandomPosInt(max) {
-  return Math.floor(Math.random() * Math.floor(max)) + 1;
-}
-
 function updatePage(xkcd) {
   fetch('https://xkcd.com/' + xkcd + '/info.0.json').then(function(response) {
     response.json().then(function(data) {
@@ -22,8 +18,7 @@ function updatePage(xkcd) {
 
 fetch('https://xkcd.com/info.0.json').then(function(response) {
   response.json().then(function(data) {
-    var num = data.num;
-    var x = getRandomPosInt(num);
+    var x = data.num;
     updatePage(x);
   });
 });
